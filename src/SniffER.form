@@ -39,7 +39,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="ZARA Packet Sniffer"/>
+    <Property name="title" type="java.lang.String" value="Simple Packet Sniffer"/>
     <Property name="name" type="java.lang.String" value="ZARA Packet Sniffer" noResource="true"/>
   </Properties>
   <SyntheticProperties>

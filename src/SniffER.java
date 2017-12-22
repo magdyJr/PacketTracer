@@ -56,7 +56,7 @@ public class SniffER extends javax.swing.JFrame {
                 try {
 
                     CAP = JpcapCaptor.openDevice(NETWORK_INTERFACES[INDEX], 65535, false, 20);
-                    //writer = JpcapWriter.openDumpFile(CAP, "captureddata");
+                    
                     if ("UDP".equals(filter_options.getSelectedItem().toString())) {
                         CAP.setFilter("udp", true);
                     } else if ("TCP".equals(filter_options.getSelectedItem().toString())) {
@@ -99,7 +99,7 @@ public class SniffER extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         listButton = new java.awt.Button();
         jLabel1 = new javax.swing.JLabel();
-        filter_options = new javax.swing.JComboBox<String>();
+        filter_options = new javax.swing.JComboBox<>();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable(){
             public boolean isCellEditable(int row, int column){
@@ -128,7 +128,7 @@ public class SniffER extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("ZARA Packet Sniffer");
+        setTitle("Simple Packet Sniffer");
         setName("ZARA Packet Sniffer"); // NOI18N
 
         jToolBar1.setRollover(true);
@@ -150,7 +150,7 @@ public class SniffER extends javax.swing.JFrame {
         jLabel1.setText(" Filter");
         jToolBar1.add(jLabel1);
 
-        filter_options.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---", "TCP", "UDP", "ICMP" }));
+        filter_options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "TCP", "UDP", "ICMP" }));
         filter_options.setPreferredSize(new java.awt.Dimension(320, 24));
         filter_options.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -379,8 +379,8 @@ public class SniffER extends javax.swing.JFrame {
                 writer = null;
                 try {
                     CAP = JpcapCaptor.openDevice(NETWORK_INTERFACES[INDEX], 65535, false, 20);
-
-                    writer = JpcapWriter.openDumpFile(CAP, "captured_data.txt");
+                    String x = "saved_captured_data"+Math.random()*100+""+Math.random()*10+".txt"; 
+                    writer = JpcapWriter.openDumpFile(CAP, x);
                 } catch (IOException ex) {
                     Logger.getLogger(SniffER.class.getName()).log(Level.SEVERE, null, ex);
                 }
